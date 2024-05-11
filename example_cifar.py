@@ -4,10 +4,15 @@ import torchvision
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from torchvision.datasets import CIFAR10, CIFAR100
+from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from timm.loss import LabelSmoothingCrossEntropy
 from homura.vision.models.cifar_resnet import wrn28_2, wrn28_10, resnet20, resnet56, resnext29_32x4d
 from asam import ASAM, SAM
-
+import torch.nn as nn
+from datasets import Dataset
+from torch import Tensor
+from scipy.sparse.linalg import LinearOperator, eigsh
+import numpy as np
 def load_cifar(data_loader, batch_size=256, num_workers=2):
     if data_loader == CIFAR10:
         mean = (0.4914, 0.4822, 0.4465)
@@ -35,7 +40,49 @@ def load_cifar(data_loader, batch_size=256, num_workers=2):
     test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, 
             num_workers=num_workers)
     return train_loader, test_loader
-   
+def iterate_dataset(dataset: Dataset, batch_size: int):
+    """Iterate through a dataset, yielding batches of data."""
+    loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+    for (batch_X, batch_y) in loader:
+        yield batch_X.cuda(), batch_y.cuda()
+def compute_hvp(network: nn.Module, loss_fn: nn.Module,
+                dataset: Dataset, vector: Tensor, physical_batch_size: int = 256):
+    """Compute a Hessian-vector product."""
+    p = len(parameters_to_vector(network.parameters()))
+    n = len(dataset)
+    hvp = torch.zeros(p, dtype=torch.float, device='cuda')
+    vector = vector.cuda()
+    for (X, y) in iterate_dataset(dataset, physical_batch_size):
+        loss = loss_fn(network(X), y) / n
+        grads = torch.autograd.grad(loss, inputs=network.parameters(), create_graph=True)
+        dot = parameters_to_vector(grads).mul(vector).sum()
+        grads = [g.contiguous() for g in torch.autograd.grad(dot, network.parameters(), retain_graph=True)]
+        hvp += parameters_to_vector(grads)
+    return hvp
+
+
+def lanczos(matrix_vector, dim: int, neigs: int):
+    """ Invoke the Lanczos algorithm to compute the leading eigenvalues and eigenvectors of a matrix / linear operator
+    (which we can access via matrix-vector products). """
+
+    def mv(vec: np.ndarray):
+        gpu_vec = torch.tensor(vec, dtype=torch.float).cuda()
+        return matrix_vector(gpu_vec)
+
+    operator = LinearOperator((dim, dim), matvec=mv)
+    evals, evecs = eigsh(operator, neigs)
+    return torch.from_numpy(np.ascontiguousarray(evals[::-1]).copy()).float(), \
+           torch.from_numpy(np.ascontiguousarray(np.flip(evecs, -1)).copy()).float()
+
+
+def get_hessian_eigenvalues(network: nn.Module, loss_fn: nn.Module, dataset: Dataset,
+                            neigs=6, physical_batch_size=1000):
+    """ Compute the leading Hessian eigenvalues. """
+    hvp_delta = lambda delta: compute_hvp(network, loss_fn, dataset,
+                                          delta, physical_batch_size=physical_batch_size).detach().cpu()
+    nparams = len(parameters_to_vector((network.parameters())))
+    evals, evecs = lanczos(hvp_delta, nparams, neigs=neigs)
+    return evals   
 
 def train(args): 
     # Data Loader
@@ -82,20 +129,28 @@ def train(args):
             # Descent Step
             criterion(model(inputs), targets).mean().backward()
             minimizer.descent_step()
-
+            ### calcuate the raw Hessian:
+            
             with torch.no_grad():
                 loss += batch_loss.sum().item()
                 accuracy += (torch.argmax(predictions, 1) == targets).sum().item()
             cnt += len(targets)
         loss /= cnt
         accuracy *= 100. / cnt
-        #with torch.no_grad():
-        parameters = [p for p in model.parameters() if p.grad is not None and p.requires_grad]
-        if len(parameters) == 0:
-             total_norm = 0.0
-        else:
-            device = parameters[0].grad.device
-            total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), 2).to(device) for p in parameters]), 2).item()
+        with torch.no_grad():
+        #calculate norm of grad
+            total_norm = torch.norm(parameters_to_vector((model.parameters())),2)
+        #parameters = [p for p in model.parameters() if p.grad is not None and p.requires_grad]
+        #if len(parameters) == 0:
+        #     total_norm = 0.0
+        #else:
+        #    device = parameters[0].grad.device
+        #    total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), 2).to(device) for p in parameters]), 2).item()
+        
+        # calculate the largest eignvalue of the preconditioned hessain
+        ### calcuate the raw Hessian:
+        # Hessian = get_hessian_eigenvalues(model, criterion,train_loader,1)
+
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
         print(f"2-norm of gradient: {total_norm}")
         scheduler.step()
