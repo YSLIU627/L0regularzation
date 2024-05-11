@@ -152,7 +152,7 @@ def train(args):
         # Hessian = get_hessian_eigenvalues(model, criterion,train_loader,1)
 
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-        print(f"2-norm of gradient: {total_norm}")
+        print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion,train_loader,1)}")
         scheduler.step()
 
         # Test
