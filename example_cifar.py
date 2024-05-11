@@ -93,7 +93,7 @@ def train(args):
     model = eval(args.model)(num_classes=num_classes).cuda()
 
     # Minimizer
-    if args.optmizer == 'SGD':
+    if args.optimizer == 'SGD':
         optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, 
                                 momentum=args.momentum, weight_decay=args.weight_decay)
     elif args.optimizer == 'Adam':
