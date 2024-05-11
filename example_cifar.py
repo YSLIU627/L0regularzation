@@ -89,12 +89,12 @@ def train(args):
             cnt += len(targets)
         loss /= cnt
         accuracy *= 100. / cnt
-        with torch.no_grad():
-            parameters = [p for p in model.parameters() if p.grad is not None and p.requires_grad]
-            if len(parameters) == 0:
-                total_norm = 0.0
-            else:
-                device = parameters[0].grad.device
+        #with torch.no_grad():
+        parameters = [p for p in model.parameters() if p.grad is not None and p.requires_grad]
+        if len(parameters) == 0:
+             total_norm = 0.0
+        else:
+            device = parameters[0].grad.device
             total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), 2).to(device) for p in parameters]), 2.0).item()
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
         print(f"2-norm of gradient: {total_norm:8.5f}")
