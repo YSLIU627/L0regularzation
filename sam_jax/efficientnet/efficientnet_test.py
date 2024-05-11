@@ -17,8 +17,8 @@
 from absl.testing import absltest
 import jax
 import numpy as np
-from sam.sam_jax.efficientnet import efficientnet
-from sam.sam_jax.imagenet_models import load_model
+from L0regularzation.sam_jax.efficientnet import efficientnet
+from L0regularzation.sam_jax.imagenet_models import load_model
 
 
 class EfficientnetTest(absltest.TestCase):

@@ -19,7 +19,7 @@ from absl.testing import parameterized
 import flax
 import jax
 import numpy as np
-from sam.sam_jax.models import load_model
+from L0regularzation.sam_jax.models import load_model
 
 
 class LoadModelTest(parameterized.TestCase):

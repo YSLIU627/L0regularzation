@@ -17,7 +17,7 @@
 
 from absl.testing import absltest
 from absl.testing import parameterized
-from sam.sam_jax.datasets import dataset_source
+from L0regularzation.sam_jax.datasets import dataset_source
 
 
 class DatasetSourceTest(parameterized.TestCase):

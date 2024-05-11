@@ -15,7 +15,7 @@
 """Tests for sam.sam_jax.datasets.dataset_source_imagenet."""
 
 from absl.testing import absltest
-from sam.sam_jax.datasets import dataset_source_imagenet
+from L0regularzation.sam_jax.datasets import dataset_source_imagenet
 
 
 class DatasetSourceImagenetTest(absltest.TestCase):

@@ -20,9 +20,9 @@ import jax
 from jax import numpy as jnp
 from jax import random
 
-from sam.sam_jax.models import pyramidnet
-from sam.sam_jax.models import wide_resnet
-from sam.sam_jax.models import wide_resnet_shakeshake
+from L0regularzation.sam_jax.models import pyramidnet
+from L0regularzation.sam_jax.models import wide_resnet
+from L0regularzation.sam_jax.models import wide_resnet_shakeshake
 
 
 _AVAILABLE_MODEL_NAMES = [

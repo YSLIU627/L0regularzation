@@ -17,7 +17,7 @@
 from absl.testing import absltest
 from jax.config import config
 import numpy as onp
-from sam.sam_jax.efficientnet import optim
+from L0regularzation.sam_jax.efficientnet import optim
 import tensorflow.compat.v1 as tf
 
 

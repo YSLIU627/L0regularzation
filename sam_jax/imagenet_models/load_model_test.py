@@ -18,7 +18,7 @@ from absl.testing import absltest
 from absl.testing import parameterized
 import flax
 import numpy as np
-from sam.sam_jax.imagenet_models import load_model
+from L0regularzation.sam_jax.imagenet_models import load_model
 
 
 class LoadModelTest(parameterized.TestCase):
