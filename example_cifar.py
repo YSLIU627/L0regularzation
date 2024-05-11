@@ -189,7 +189,7 @@ if __name__ == "__main__":
     parser.add_argument("--smoothing", default=0.1, type=float, help="Label smoothing.")
     parser.add_argument("--rho", default=0.5, type=float, help="Rho for ASAM.")
     parser.add_argument("--eta", default=0.0, type=float, help="Eta for ASAM.")
-    parser.add_argument("--optmizer", default='SGD', type=str, help="Adam or SGD")
+    parser.add_argument("--optimizer", default='SGD', type=str, help="Adam or SGD")
     args = parser.parse_args()
     assert args.dataset in ['CIFAR10', 'CIFAR100'], \
             f"Invalid data type. Please select CIFAR10 or CIFAR100"
