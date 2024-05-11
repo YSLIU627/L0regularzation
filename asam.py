@@ -50,7 +50,14 @@ class ASAM:
         self.optimizer.zero_grad()
         return grad_norm
 
-class no_SAM(ASAM):
+class no_SAM:
+    def __init__(self, optimizer, model, rho=0.5, eta=0.01):
+        self.optimizer = optimizer
+        self.model = model
+        self.rho = rho
+        self.eta = eta
+        self.state = defaultdict(dict)
+        print("no_SAM")
     @torch.no_grad()
     def descent_step(self):
         grads = []
