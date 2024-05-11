@@ -25,7 +25,7 @@ import inspect
 import math
 
 import dataclasses
-from sam.autoaugment import policies as optimal_policies
+from L0regularzation.autoaugment import policies as optimal_policies
 import tensorflow.compat.v1 as tf
 from tensorflow_addons import image as contrib_image
 

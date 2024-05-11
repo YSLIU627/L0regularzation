@@ -16,7 +16,7 @@
 
 from absl.testing import absltest
 from absl.testing import parameterized
-from sam.autoaugment import autoaugment
+from L0regularzation.autoaugment import autoaugment
 import tensorflow as tf
 
 
