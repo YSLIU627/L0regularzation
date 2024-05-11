@@ -50,7 +50,10 @@ class ASAM:
         self.optimizer.zero_grad()
         return grad_norm
 
-
+class no_SAM(ASAM):
+    @torch.no_grad()
+    def ascent_step(self):
+        self.optimizer.zero_grad()
 class SAM(ASAM):
     @torch.no_grad()
     def ascent_step(self):

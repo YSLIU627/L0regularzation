@@ -7,7 +7,7 @@ from torchvision.datasets import CIFAR10, CIFAR100
 from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from timm.loss import LabelSmoothingCrossEntropy
 from homura.vision.models.cifar_resnet import wrn28_2, wrn28_10, resnet20, resnet56, resnext29_32x4d
-from asam import ASAM, SAM
+from asam import ASAM, SAM, no_SAM
 import torch.nn as nn
 from datasets import Dataset
 from torch import Tensor
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", default='CIFAR10', type=str, help="CIFAR10 or CIFAR100.")
     parser.add_argument("--model", default='wrn28_10', type=str, help="Name of model architecure")
-    parser.add_argument("--minimizer", default='ASAM', type=str, help="ASAM or SAM.")
+    parser.add_argument("--minimizer", default='ASAM', type=str, help="ASAM, SAM, or no_SAM")
     parser.add_argument("--lr", default=0.1, type=float, help="Initial learning rate.")
     parser.add_argument("--momentum", default=0.9, type=float, help="Momentum.")
     parser.add_argument("--weight_decay", default=5e-4, type=float, help="Weight decay factor.")
