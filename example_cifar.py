@@ -131,11 +131,11 @@ def train(args):
             cnt += len(targets)
         loss /= cnt
         accuracy *= 100. / cnt
-        with torch.no_grad():
+        
         #calculate norm of grad
-            total_norm = torch.norm(parameters_to_vector((model.parameters())),2)
-            print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-            print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
+        total_norm = np.sqrt(sum([torch.norm(p.grad.detach().cpu(),2)**2 for p in model.parameters()]))
+        print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
+        print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
         #print("Largest eignvalue of preconditioned Hessian matrix: TBD")
         scheduler.step()
         index += 1
