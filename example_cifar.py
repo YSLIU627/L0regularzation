@@ -52,7 +52,9 @@ def compute_hvp(network: nn.Module, loss_fn: nn.Module,
     n = len(dataset)
     hvp = torch.zeros(p, dtype=torch.float, device='cuda')
     vector = vector.cuda()
-    for (X, y) in iterate_dataset(dataset, physical_batch_size):
+    for (X, y) in dataset:#iterate_dataset(dataset, physical_batch_size):
+        X = X.cuda()
+        y = y.cuda()
         loss = loss_fn(network(X), y) / n
         grads = torch.autograd.grad(loss, inputs=network.parameters(), create_graph=True)
         dot = parameters_to_vector(grads).mul(vector).sum()
