@@ -177,6 +177,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     assert args.dataset in ['CIFAR10', 'CIFAR100'], \
             f"Invalid data type. Please select CIFAR10 or CIFAR100"
-    assert args.minimizer in ['ASAM', 'SAM'], \
+    assert args.minimizer in ['ASAM', 'SAM', 'no_SAM'], \
             f"Invalid minimizer type. Please select ASAM or SAM"
     train(args)
