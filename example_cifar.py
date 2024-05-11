@@ -135,8 +135,7 @@ def train(args):
         
         #calculate norm of grad
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-        print(f"2-norm of gradient: {grad_norm}.")
-        print(f"Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
+        print(f"2-norm of gradient: {grad_norm}, Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
         #print("Largest eignvalue of preconditioned Hessian matrix: TBD")
         scheduler.step()
         index += 1
