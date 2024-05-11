@@ -32,8 +32,8 @@ from flax.training import lr_schedule
 import jax
 import jax.numpy as jnp
 import numpy as np
-from sam.sam_jax.datasets import dataset_source as dataset_source_lib
-from sam.sam_jax.efficientnet import optim as efficientnet_optim
+from L0regularzation.sam_jax.datasets import dataset_source as dataset_source_lib
+from L0regularzation.sam_jax.efficientnet import optim as efficientnet_optim
 import tensorflow as tf
 from tensorflow.io import gfile
 

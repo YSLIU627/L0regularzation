@@ -25,8 +25,8 @@ import jax
 from jax.lib import xla_bridge
 import jax.numpy as jnp
 import pandas as pd
-from sam.sam_jax.datasets import dataset_source
-from sam.sam_jax.training_utils import flax_training
+from L0regularzation.sam_jax.datasets import dataset_source
+from L0regularzation.sam_jax.training_utils import flax_training
 import tensorflow as tf
 from tensorflow.io import gfile
 

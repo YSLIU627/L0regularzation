@@ -21,7 +21,7 @@ https://github.com/google/flax/blob/master/examples/imagenet/resnet_v1_test.py
 from absl.testing import absltest
 import jax
 import jax.numpy as jnp
-from sam.sam_jax.imagenet_models import resnet
+from L0regularzation.sam_jax.imagenet_models import resnet
 
 
 class ResNetTest(absltest.TestCase):

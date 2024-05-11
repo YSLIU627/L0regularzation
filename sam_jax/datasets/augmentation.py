@@ -17,7 +17,7 @@
 from typing import Dict
 
 from absl import flags
-from sam.autoaugment import autoaugment
+from L0regularzation.autoaugment import autoaugment
 import tensorflow as tf
 import tensorflow_probability as tfp
 

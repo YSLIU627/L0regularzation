@@ -20,12 +20,12 @@ from absl import app
 from absl import flags
 from absl import logging
 import jax
-from sam.sam_jax.datasets import dataset_source as dataset_source_lib
-from sam.sam_jax.datasets import dataset_source_imagenet
-from sam.sam_jax.efficientnet import efficientnet
-from sam.sam_jax.imagenet_models import load_model as load_imagenet_model
-from sam.sam_jax.models import load_model
-from sam.sam_jax.training_utils import flax_training
+from L0regularzation.sam_jax.datasets import dataset_source as dataset_source_lib
+from L0regularzation.sam_jax.datasets import dataset_source_imagenet
+from L0regularzation.sam_jax.efficientnet import efficientnet
+from L0regularzation.sam_jax.imagenet_models import load_model as load_imagenet_model
+from L0regularzation.sam_jax.models import load_model
+from L0regularzation.sam_jax.training_utils import flax_training
 import tensorflow.compat.v2 as tf
 from tensorflow.io import gfile
 
