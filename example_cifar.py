@@ -40,26 +40,17 @@ def load_cifar(data_loader, batch_size=256, num_workers=2):
     test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=False, 
             num_workers=num_workers)
     return train_loader, test_loader
-def iterate_dataset(dataset: Dataset, batch_size: int):
-    """Iterate through a dataset, yielding batches of data."""
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
-    for (batch_X, batch_y) in loader:
-        yield batch_X.cuda(), batch_y.cuda()
 def compute_hvp(network: nn.Module, loss_fn: nn.Module,
-                dataset: Dataset, vector: Tensor, physical_batch_size: int = 256):
+                X: Tensor, y: Tensor, vector: Tensor, physical_batch_size: int = 256):
     """Compute a Hessian-vector product."""
     p = len(parameters_to_vector(network.parameters()))
-    n = len(dataset)
     hvp = torch.zeros(p, dtype=torch.float, device='cuda')
     vector = vector.cuda()
-    for (X, y) in dataset:#iterate_dataset(dataset, physical_batch_size):
-        X = X.cuda()
-        y = y.cuda()
-        loss = loss_fn(network(X), y) / n
-        grads = torch.autograd.grad(loss, inputs=network.parameters(), create_graph=True)
-        dot = parameters_to_vector(grads).mul(vector).sum()
-        grads = [g.contiguous() for g in torch.autograd.grad(dot, network.parameters(), retain_graph=True)]
-        hvp += parameters_to_vector(grads)
+    loss = loss_fn(network(X), y)
+    grads = torch.autograd.grad(loss, inputs=network.parameters(), create_graph=True)
+    dot = parameters_to_vector(grads).mul(vector).sum()
+    grads = [g.contiguous() for g in torch.autograd.grad(dot, network.parameters(), retain_graph=True)]
+    hvp += parameters_to_vector(grads)
     return hvp
 
 
@@ -77,10 +68,10 @@ def lanczos(matrix_vector, dim: int, neigs: int):
            torch.from_numpy(np.ascontiguousarray(np.flip(evecs, -1)).copy()).float()
 
 
-def get_hessian_eigenvalues(network: nn.Module, loss_fn: nn.Module, dataset: Dataset,
+def get_hessian_eigenvalues(network: nn.Module, loss_fn: nn.Module, X: Tensor, y: Tensor,
                             neigs=6, physical_batch_size=1000):
     """ Compute the leading Hessian eigenvalues. """
-    hvp_delta = lambda delta: compute_hvp(network, loss_fn, dataset,
+    hvp_delta = lambda delta: compute_hvp(network, loss_fn, X, y,
                                           delta, physical_batch_size=physical_batch_size).detach().cpu()
     nparams = len(parameters_to_vector((network.parameters())))
     evals, evecs = lanczos(hvp_delta, nparams, neigs=neigs)
@@ -114,6 +105,7 @@ def train(args):
     best_accuracy = 0.
     for epoch in range(args.epochs):
         # Train
+        index = 0
         model.train()
         loss = 0.
         accuracy = 0.
@@ -143,10 +135,10 @@ def train(args):
         #calculate norm of grad
             total_norm = torch.norm(parameters_to_vector((model.parameters())),2)
             print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-            print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion,train_loader,1)}")
+            print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
         #print("Largest eignvalue of preconditioned Hessian matrix: TBD")
         scheduler.step()
-
+        index += 1
         # Test
         model.eval()
         loss = 0.
