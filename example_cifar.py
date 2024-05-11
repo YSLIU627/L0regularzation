@@ -111,6 +111,7 @@ def train(args):
         accuracy = 0.
         cnt = 0.
         for inputs, targets in train_loader:
+            minimizer.optimizer.zero_grad()
             inputs = inputs.cuda()
             targets = targets.cuda()
 
@@ -122,7 +123,7 @@ def train(args):
 
             # Descent Step
             criterion(model(inputs), targets).mean().backward()
-            minimizer.descent_step()
+            grad_norm = minimizer.descent_step()
             ### calcuate the raw Hessian:
             
             with torch.no_grad():
@@ -133,9 +134,8 @@ def train(args):
         accuracy *= 100. / cnt
         
         #calculate norm of grad
-        total_norm = np.sqrt(sum([torch.norm(p.grad.detach().cpu(),2)**2 for p in model.parameters()]))
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-        print(f"2-norm of gradient: {total_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
+        print(f"2-norm of gradient: {grad_norm}. Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
         #print("Largest eignvalue of preconditioned Hessian matrix: TBD")
         scheduler.step()
         index += 1

@@ -39,12 +39,16 @@ class ASAM:
 
     @torch.no_grad()
     def descent_step(self):
+        grads = []
         for n, p in self.model.named_parameters():
             if p.grad is None:
                 continue
             p.sub_(self.state[p]["eps"])
+            grads.append(torch.norm(p.grad, p=2))
+        grad_norm = torch.norm(torch.stack(grads), p=2) + 1.e-16
         self.optimizer.step()
         self.optimizer.zero_grad()
+        return grad_norm
 
 
 class SAM(ASAM):
