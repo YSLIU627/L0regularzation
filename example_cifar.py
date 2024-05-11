@@ -95,9 +95,9 @@ def train(args):
              total_norm = 0.0
         else:
             device = parameters[0].grad.device
-            total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), 2).to(device) for p in parameters]), 2.0).item()
+            total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), 2).to(device) for p in parameters]), 2).item()
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-        print(f"2-norm of gradient: {total_norm:8.5f}")
+        print(f"2-norm of gradient: {total_norm}")
         scheduler.step()
 
         # Test
