@@ -53,7 +53,11 @@ class ASAM:
 class no_SAM(ASAM):
     @torch.no_grad()
     def ascent_step(self):
+        self.optimizer.step()
         self.optimizer.zero_grad()
+    @torch.no_grad()
+    def ascent_step(self):
+        pass
 class SAM(ASAM):
     @torch.no_grad()
     def ascent_step(self):

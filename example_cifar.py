@@ -13,6 +13,7 @@ from datasets import Dataset
 from torch import Tensor
 from scipy.sparse.linalg import LinearOperator, eigsh
 import numpy as np
+import json
 def load_cifar(data_loader, batch_size=256, num_workers=2):
     if data_loader == CIFAR10:
         mean = (0.4914, 0.4822, 0.4465)
@@ -81,7 +82,8 @@ def train(args):
     # Data Loader
     train_loader, test_loader = load_cifar(eval(args.dataset), args.batch_size)
     num_classes = 10 if args.dataset == 'CIFAR10' else 100
-
+    training_stat = {'epoch':[], 'train accuracy': [], 'train loss': [], 'gradient norm': [], 'sharpness': [] }
+    test_stat = {'epoch':[], 'test accuracy': []}
     # Model
     model = eval(args.model)(num_classes=num_classes).cuda()
 
@@ -118,8 +120,9 @@ def train(args):
             # Ascent Step
             predictions = model(inputs)
             batch_loss = criterion(predictions, targets)
-            batch_loss.mean().backward()
-            minimizer.ascent_step()
+            if args.minimizer != 'no_SAM':
+                batch_loss.mean().backward()
+                minimizer.ascent_step()
 
             # Descent Step
             criterion(model(inputs), targets).mean().backward()
@@ -132,10 +135,16 @@ def train(args):
             cnt += len(targets)
         loss /= cnt
         accuracy *= 100. / cnt
-        
+        eign_v = get_hessian_eigenvalues(model, criterion, inputs, targets, 1)
         #calculate norm of grad
         print(f"Epoch: {epoch}, Train accuracy: {accuracy:6.2f} %, Train loss: {loss:8.5f}")
-        print(f"2-norm of gradient: {grad_norm}, Largest eignvalue of raw Hessian matrix: {get_hessian_eigenvalues(model, criterion, inputs, targets, 1)}")
+        print(f"2-norm of gradient: {grad_norm}, Largest eignvalue of raw Hessian matrix: {eign_v}")
+        training_stat["epoch"].append(epoch)
+        training_stat["train loss"].append(loss)
+        training_stat["train accuracy"].append(accuracy)
+        training_stat["gradient norm"].append(grad_norm)
+        training_stat["sharpness"].append(eign_v)
+        
         #print("Largest eignvalue of preconditioned Hessian matrix: TBD")
         scheduler.step()
         index += 1
@@ -157,8 +166,12 @@ def train(args):
         if best_accuracy < accuracy:
            best_accuracy = accuracy
         print(f"Epoch: {epoch}, Test accuracy:  {accuracy:6.2f} %, Test loss:  {loss:8.5f}")
+        test_stat["epoch"].append(epoch)
+        test_stat["test accuracy"].append(accuracy)
     print(f"Best test accuracy: {best_accuracy}")
-
+    data = {'train': training_stat, 'test':test_stat, 'best test acc':best_accuracy}
+    with open(f'result_{args.lr}_{args.optimizer}_{args.minimizer}_{args.batch_size}.json', 'w') as fp:
+        json.dump(data, fp)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
