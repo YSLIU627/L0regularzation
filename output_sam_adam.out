@@ -346,3 +346,219 @@ Epoch: 114, Test accuracy:   90.17 %, Test loss:   0.00625
 Epoch: 115, Train accuracy:  99.65 %, Train loss:  0.00401
 2-norm of gradient: 0.0272303968667984. Largest eignvalue of raw Hessian matrix: tensor([0.1035])
 Epoch: 115, Test accuracy:   89.21 %, Test loss:   0.00642
+Epoch: 116, Train accuracy:  99.66 %, Train loss:  0.00401
+2-norm of gradient: 0.01275851484388113. Largest eignvalue of raw Hessian matrix: tensor([0.0663])
+Epoch: 116, Test accuracy:   89.15 %, Test loss:   0.00637
+Epoch: 117, Train accuracy:  99.68 %, Train loss:  0.00401
+2-norm of gradient: 0.036956604570150375. Largest eignvalue of raw Hessian matrix: tensor([0.0902])
+Epoch: 117, Test accuracy:   89.69 %, Test loss:   0.00635
+Epoch: 118, Train accuracy:  99.76 %, Train loss:  0.00399
+2-norm of gradient: 0.01685764081776142. Largest eignvalue of raw Hessian matrix: tensor([0.0983])
+Epoch: 118, Test accuracy:   89.63 %, Test loss:   0.00630
+Epoch: 119, Train accuracy:  99.65 %, Train loss:  0.00401
+2-norm of gradient: 0.02445954456925392. Largest eignvalue of raw Hessian matrix: tensor([0.0821])
+Epoch: 119, Test accuracy:   89.75 %, Test loss:   0.00631
+Epoch: 120, Train accuracy:  99.77 %, Train loss:  0.00399
+2-norm of gradient: 0.025749826803803444. Largest eignvalue of raw Hessian matrix: tensor([0.0916])
+Epoch: 120, Test accuracy:   89.90 %, Test loss:   0.00628
+Epoch: 121, Train accuracy:  99.74 %, Train loss:  0.00399
+2-norm of gradient: 0.02322630025446415. Largest eignvalue of raw Hessian matrix: tensor([0.0737])
+Epoch: 121, Test accuracy:   89.75 %, Test loss:   0.00626
+Epoch: 122, Train accuracy:  99.73 %, Train loss:  0.00399
+2-norm of gradient: 0.01944727450609207. Largest eignvalue of raw Hessian matrix: tensor([0.0788])
+Epoch: 122, Test accuracy:   89.32 %, Test loss:   0.00643
+Epoch: 123, Train accuracy:  99.78 %, Train loss:  0.00398
+2-norm of gradient: 0.016597319394350052. Largest eignvalue of raw Hessian matrix: tensor([0.0753])
+Epoch: 123, Test accuracy:   89.45 %, Test loss:   0.00636
+Epoch: 124, Train accuracy:  99.79 %, Train loss:  0.00398
+2-norm of gradient: 0.016243549063801765. Largest eignvalue of raw Hessian matrix: tensor([0.0690])
+Epoch: 124, Test accuracy:   89.52 %, Test loss:   0.00645
+Epoch: 125, Train accuracy:  99.72 %, Train loss:  0.00399
+2-norm of gradient: 0.011296184733510017. Largest eignvalue of raw Hessian matrix: tensor([0.0751])
+Epoch: 125, Test accuracy:   89.62 %, Test loss:   0.00634
+Epoch: 126, Train accuracy:  99.82 %, Train loss:  0.00397
+2-norm of gradient: 0.047229185700416565. Largest eignvalue of raw Hessian matrix: tensor([0.0755])
+Epoch: 126, Test accuracy:   89.05 %, Test loss:   0.00645
+Epoch: 127, Train accuracy:  99.85 %, Train loss:  0.00397
+2-norm of gradient: 0.010424156673252583. Largest eignvalue of raw Hessian matrix: tensor([0.0616])
+Epoch: 127, Test accuracy:   90.09 %, Test loss:   0.00622
+Epoch: 128, Train accuracy:  99.83 %, Train loss:  0.00397
+2-norm of gradient: 0.010196259245276451. Largest eignvalue of raw Hessian matrix: tensor([0.0682])
+Epoch: 128, Test accuracy:   89.96 %, Test loss:   0.00632
+Epoch: 129, Train accuracy:  99.82 %, Train loss:  0.00397
+2-norm of gradient: 0.08243375271558762. Largest eignvalue of raw Hessian matrix: tensor([0.0614])
+Epoch: 129, Test accuracy:   89.95 %, Test loss:   0.00625
+Epoch: 130, Train accuracy:  99.85 %, Train loss:  0.00397
+2-norm of gradient: 0.02187201753258705. Largest eignvalue of raw Hessian matrix: tensor([0.0603])
+Epoch: 130, Test accuracy:   89.64 %, Test loss:   0.00639
+Epoch: 131, Train accuracy:  99.75 %, Train loss:  0.00398
+2-norm of gradient: 0.04007682949304581. Largest eignvalue of raw Hessian matrix: tensor([0.0691])
+Epoch: 131, Test accuracy:   89.62 %, Test loss:   0.00631
+Epoch: 132, Train accuracy:  99.83 %, Train loss:  0.00397
+2-norm of gradient: 0.023595448583364487. Largest eignvalue of raw Hessian matrix: tensor([0.0847])
+Epoch: 132, Test accuracy:   89.28 %, Test loss:   0.00637
+Epoch: 133, Train accuracy:  99.89 %, Train loss:  0.00396
+2-norm of gradient: 0.012593530118465424. Largest eignvalue of raw Hessian matrix: tensor([0.0921])
+Epoch: 133, Test accuracy:   89.70 %, Test loss:   0.00632
+Epoch: 134, Train accuracy:  99.89 %, Train loss:  0.00395
+2-norm of gradient: 0.013044922612607479. Largest eignvalue of raw Hessian matrix: tensor([0.0694])
+Epoch: 134, Test accuracy:   89.43 %, Test loss:   0.00636
+Epoch: 135, Train accuracy:  99.89 %, Train loss:  0.00395
+2-norm of gradient: 0.013043117709457874. Largest eignvalue of raw Hessian matrix: tensor([0.0754])
+Epoch: 135, Test accuracy:   89.94 %, Test loss:   0.00626
+Epoch: 136, Train accuracy:  99.93 %, Train loss:  0.00395
+2-norm of gradient: 0.008462462574243546. Largest eignvalue of raw Hessian matrix: tensor([0.0606])
+Epoch: 136, Test accuracy:   90.07 %, Test loss:   0.00620
+Epoch: 137, Train accuracy:  99.85 %, Train loss:  0.00396
+2-norm of gradient: 0.06014372408390045. Largest eignvalue of raw Hessian matrix: tensor([0.0755])
+Epoch: 137, Test accuracy:   89.72 %, Test loss:   0.00632
+Epoch: 138, Train accuracy:  99.91 %, Train loss:  0.00395
+2-norm of gradient: 0.006125621031969786. Largest eignvalue of raw Hessian matrix: tensor([0.0801])
+Epoch: 138, Test accuracy:   89.48 %, Test loss:   0.00641
+Epoch: 139, Train accuracy:  99.93 %, Train loss:  0.00394
+2-norm of gradient: 0.020631184801459312. Largest eignvalue of raw Hessian matrix: tensor([0.0602])
+Epoch: 139, Test accuracy:   90.05 %, Test loss:   0.00619
+Epoch: 140, Train accuracy:  99.88 %, Train loss:  0.00395
+2-norm of gradient: 0.007285227533429861. Largest eignvalue of raw Hessian matrix: tensor([0.0718])
+Epoch: 140, Test accuracy:   89.98 %, Test loss:   0.00622
+Epoch: 141, Train accuracy:  99.89 %, Train loss:  0.00395
+2-norm of gradient: 0.04871239885687828. Largest eignvalue of raw Hessian matrix: tensor([0.0626])
+Epoch: 141, Test accuracy:   89.51 %, Test loss:   0.00639
+Epoch: 142, Train accuracy:  99.91 %, Train loss:  0.00395
+2-norm of gradient: 0.032088134437799454. Largest eignvalue of raw Hessian matrix: tensor([0.0699])
+Epoch: 142, Test accuracy:   89.64 %, Test loss:   0.00631
+Epoch: 143, Train accuracy:  99.92 %, Train loss:  0.00394
+2-norm of gradient: 0.008694849908351898. Largest eignvalue of raw Hessian matrix: tensor([0.0684])
+Epoch: 143, Test accuracy:   90.03 %, Test loss:   0.00626
+Epoch: 144, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.01092742569744587. Largest eignvalue of raw Hessian matrix: tensor([0.0956])
+Epoch: 144, Test accuracy:   90.01 %, Test loss:   0.00626
+Epoch: 145, Train accuracy:  99.93 %, Train loss:  0.00394
+2-norm of gradient: 0.01050175353884697. Largest eignvalue of raw Hessian matrix: tensor([0.0724])
+Epoch: 145, Test accuracy:   89.75 %, Test loss:   0.00633
+Epoch: 146, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.008197039365768433. Largest eignvalue of raw Hessian matrix: tensor([0.0810])
+Epoch: 146, Test accuracy:   90.14 %, Test loss:   0.00624
+Epoch: 147, Train accuracy:  99.97 %, Train loss:  0.00393
+2-norm of gradient: 0.00938404817134142. Largest eignvalue of raw Hessian matrix: tensor([0.0767])
+Epoch: 147, Test accuracy:   89.91 %, Test loss:   0.00627
+Epoch: 148, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.007323970552533865. Largest eignvalue of raw Hessian matrix: tensor([0.0686])
+Epoch: 148, Test accuracy:   89.83 %, Test loss:   0.00629
+Epoch: 149, Train accuracy:  99.91 %, Train loss:  0.00394
+2-norm of gradient: 0.00830452237278223. Largest eignvalue of raw Hessian matrix: tensor([0.0737])
+Epoch: 149, Test accuracy:   89.36 %, Test loss:   0.00636
+Epoch: 150, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.014884265139698982. Largest eignvalue of raw Hessian matrix: tensor([0.0711])
+Epoch: 150, Test accuracy:   89.86 %, Test loss:   0.00629
+Epoch: 151, Train accuracy:  99.97 %, Train loss:  0.00393
+2-norm of gradient: 0.007151165045797825. Largest eignvalue of raw Hessian matrix: tensor([0.0805])
+Epoch: 151, Test accuracy:   90.40 %, Test loss:   0.00614
+Epoch: 152, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.014484286308288574. Largest eignvalue of raw Hessian matrix: tensor([0.0608])
+Epoch: 152, Test accuracy:   90.29 %, Test loss:   0.00619
+Epoch: 153, Train accuracy:  99.97 %, Train loss:  0.00393
+2-norm of gradient: 0.012440798804163933. Largest eignvalue of raw Hessian matrix: tensor([0.0766])
+Epoch: 153, Test accuracy:   90.42 %, Test loss:   0.00618
+Epoch: 154, Train accuracy:  99.96 %, Train loss:  0.00393
+2-norm of gradient: 0.007872914895415306. Largest eignvalue of raw Hessian matrix: tensor([0.0638])
+Epoch: 154, Test accuracy:   90.30 %, Test loss:   0.00620
+Epoch: 155, Train accuracy:  99.99 %, Train loss:  0.00393
+2-norm of gradient: 0.006951623130589724. Largest eignvalue of raw Hessian matrix: tensor([0.0688])
+Epoch: 155, Test accuracy:   90.14 %, Test loss:   0.00621
+Epoch: 156, Train accuracy:  99.98 %, Train loss:  0.00393
+2-norm of gradient: 0.007071744184941053. Largest eignvalue of raw Hessian matrix: tensor([0.0697])
+Epoch: 156, Test accuracy:   90.18 %, Test loss:   0.00622
+Epoch: 157, Train accuracy:  99.99 %, Train loss:  0.00393
+2-norm of gradient: 0.022569989785552025. Largest eignvalue of raw Hessian matrix: tensor([0.0825])
+Epoch: 157, Test accuracy:   90.15 %, Test loss:   0.00625
+Epoch: 158, Train accuracy:  99.98 %, Train loss:  0.00393
+2-norm of gradient: 0.005480055231601. Largest eignvalue of raw Hessian matrix: tensor([0.0630])
+Epoch: 158, Test accuracy:   90.25 %, Test loss:   0.00617
+Epoch: 159, Train accuracy:  99.97 %, Train loss:  0.00393
+2-norm of gradient: 0.007011231034994125. Largest eignvalue of raw Hessian matrix: tensor([0.0707])
+Epoch: 159, Test accuracy:   89.77 %, Test loss:   0.00631
+Epoch: 160, Train accuracy:  99.98 %, Train loss:  0.00393
+2-norm of gradient: 0.008450412191450596. Largest eignvalue of raw Hessian matrix: tensor([0.0709])
+Epoch: 160, Test accuracy:   90.31 %, Test loss:   0.00619
+Epoch: 161, Train accuracy:  99.98 %, Train loss:  0.00392
+2-norm of gradient: 0.0066300141625106335. Largest eignvalue of raw Hessian matrix: tensor([0.0512])
+Epoch: 161, Test accuracy:   89.86 %, Test loss:   0.00628
+Epoch: 162, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.005532012786716223. Largest eignvalue of raw Hessian matrix: tensor([0.0655])
+Epoch: 162, Test accuracy:   90.43 %, Test loss:   0.00618
+Epoch: 163, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.005597671028226614. Largest eignvalue of raw Hessian matrix: tensor([0.0682])
+Epoch: 163, Test accuracy:   89.73 %, Test loss:   0.00627
+Epoch: 164, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.009617906995117664. Largest eignvalue of raw Hessian matrix: tensor([0.0709])
+Epoch: 164, Test accuracy:   90.37 %, Test loss:   0.00616
+Epoch: 165, Train accuracy:  99.98 %, Train loss:  0.00392
+2-norm of gradient: 0.005894997622817755. Largest eignvalue of raw Hessian matrix: tensor([0.0779])
+Epoch: 165, Test accuracy:   89.98 %, Test loss:   0.00629
+Epoch: 166, Train accuracy:  99.97 %, Train loss:  0.00392
+2-norm of gradient: 0.009063982404768467. Largest eignvalue of raw Hessian matrix: tensor([0.0665])
+Epoch: 166, Test accuracy:   90.34 %, Test loss:   0.00620
+Epoch: 167, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.0042383442632853985. Largest eignvalue of raw Hessian matrix: tensor([0.0691])
+Epoch: 167, Test accuracy:   90.30 %, Test loss:   0.00616
+Epoch: 168, Train accuracy:  99.97 %, Train loss:  0.00392
+2-norm of gradient: 0.00806084182113409. Largest eignvalue of raw Hessian matrix: tensor([0.0691])
+Epoch: 168, Test accuracy:   90.34 %, Test loss:   0.00616
+Epoch: 169, Train accuracy:  99.98 %, Train loss:  0.00392
+2-norm of gradient: 0.007125837728381157. Largest eignvalue of raw Hessian matrix: tensor([0.0737])
+Epoch: 169, Test accuracy:   90.44 %, Test loss:   0.00616
+Epoch: 170, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.011077873408794403. Largest eignvalue of raw Hessian matrix: tensor([0.0911])
+Epoch: 170, Test accuracy:   90.47 %, Test loss:   0.00616
+Epoch: 171, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.0059575848281383514. Largest eignvalue of raw Hessian matrix: tensor([0.0632])
+Epoch: 171, Test accuracy:   90.16 %, Test loss:   0.00625
+Epoch: 172, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.00539190461859107. Largest eignvalue of raw Hessian matrix: tensor([0.0720])
+Epoch: 172, Test accuracy:   90.38 %, Test loss:   0.00617
+Epoch: 173, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.014704607427120209. Largest eignvalue of raw Hessian matrix: tensor([0.0547])
+Epoch: 173, Test accuracy:   90.29 %, Test loss:   0.00620
+Epoch: 174, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.00501661840826273. Largest eignvalue of raw Hessian matrix: tensor([0.0678])
+Epoch: 174, Test accuracy:   90.29 %, Test loss:   0.00621
+Epoch: 175, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.004083910956978798. Largest eignvalue of raw Hessian matrix: tensor([0.0654])
+Epoch: 175, Test accuracy:   90.53 %, Test loss:   0.00616
+Epoch: 176, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.02191048301756382. Largest eignvalue of raw Hessian matrix: tensor([0.0734])
+Epoch: 176, Test accuracy:   90.50 %, Test loss:   0.00615
+Epoch: 177, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.0036347422283142805. Largest eignvalue of raw Hessian matrix: tensor([0.0656])
+Epoch: 177, Test accuracy:   90.63 %, Test loss:   0.00616
+Epoch: 178, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.004388194996863604. Largest eignvalue of raw Hessian matrix: tensor([0.0800])
+Epoch: 178, Test accuracy:   90.73 %, Test loss:   0.00608
+Epoch: 179, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.005692869890481234. Largest eignvalue of raw Hessian matrix: tensor([0.0698])
+Epoch: 179, Test accuracy:   90.63 %, Test loss:   0.00611
+Epoch: 180, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.01018743496388197. Largest eignvalue of raw Hessian matrix: tensor([0.0623])
+Epoch: 180, Test accuracy:   90.55 %, Test loss:   0.00615
+Epoch: 181, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.004791696555912495. Largest eignvalue of raw Hessian matrix: tensor([0.0569])
+Epoch: 181, Test accuracy:   90.21 %, Test loss:   0.00615
+Epoch: 182, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.00484140869230032. Largest eignvalue of raw Hessian matrix: tensor([0.0635])
+Epoch: 182, Test accuracy:   90.30 %, Test loss:   0.00620
+Epoch: 183, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.0031931563280522823. Largest eignvalue of raw Hessian matrix: tensor([0.0750])
+Epoch: 183, Test accuracy:   90.56 %, Test loss:   0.00613
+Epoch: 184, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.0057255723513662815. Largest eignvalue of raw Hessian matrix: tensor([0.0622])
+Epoch: 184, Test accuracy:   90.49 %, Test loss:   0.00614
+Epoch: 185, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.005292963236570358. Largest eignvalue of raw Hessian matrix: tensor([0.0690])
+Epoch: 185, Test accuracy:   90.35 %, Test loss:   0.00617
+Epoch: 186, Train accuracy: 100.00 %, Train loss:  0.00392
+2-norm of gradient: 0.006319168023765087. Largest eignvalue of raw Hessian matrix: tensor([0.0685])
+Epoch: 186, Test accuracy:   90.58 %, Test loss:   0.00611
+Epoch: 187, Train accuracy:  99.99 %, Train loss:  0.00392
+2-norm of gradient: 0.007252650335431099. Largest eignvalue of raw Hessian matrix: tensor([0.0757])
+Epoch: 187, Test accuracy:   90.60 %, Test loss:   0.00613
