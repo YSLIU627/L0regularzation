@@ -48,7 +48,7 @@ class ASAM:
         grad_norm = torch.norm(torch.stack(grads), p=2) + 1.e-16
         self.optimizer.step()
         self.optimizer.zero_grad()
-        return grad_norm
+        return grad_norm.item()
 
 class no_SAM:
     def __init__(self, optimizer, model, rho=0.5, eta=0.01):
@@ -68,7 +68,7 @@ class no_SAM:
         grad_norm = torch.norm(torch.stack(grads), p=2) + 1.e-16
         self.optimizer.step()
         self.optimizer.zero_grad()
-        return grad_norm
+        return grad_norm.item()
     @torch.no_grad()
     def ascent_step(self):
         pass
